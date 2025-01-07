@@ -165,9 +165,9 @@ function install_node {
     export NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node/;
     
     # 安装 Node.js 14.21.3 (fermium) LTS 版本
-    nvm install lts/fermium
-    nvm use lts/fermium
-    nvm alias default lts/fermium
+    nvm install 14.21.3
+    nvm use 14.21.3
+    nvm alias default 14.21.3
     
     # 验证安装
     node -v
