@@ -159,9 +159,10 @@ function install_node {
     export NVM_NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node/;
     # gyp WARN download NVM_NODEJS_ORG_MIRROR is deprecated and will be removed in node-gyp v4, please use NODEJS_ORG_MIRROR
     export NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node/;
-    nvm install stable
-    nvm use stable
-    nvm alias default stable
+    # 修改这里：安装 14.x 版本而不是最新版
+    nvm install 14.21.3  # 使用 14.x 的最后一个 LTS 版本
+    nvm use 14.21.3
+    nvm alias default 14.21.3
     success node
   fi
 }
