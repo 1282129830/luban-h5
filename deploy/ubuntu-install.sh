@@ -155,14 +155,24 @@ function install_node {
     already node
   else
     installing node
-    # source $HOME/.nvm/nvm.sh;
+    # 确保 nvm 在当前 shell 中可用
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+    
+    # 设置 node 镜像
     export NVM_NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node/;
-    # gyp WARN download NVM_NODEJS_ORG_MIRROR is deprecated and will be removed in node-gyp v4, please use NODEJS_ORG_MIRROR
     export NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node/;
-    # 安装 Node.js 14.17.0 LTS 版本
-    nvm install 14.17.0
-    nvm use 14.17.0
-    nvm alias default 14.17.0
+    
+    # 安装 Node.js 14.21.3 (fermium) LTS 版本
+    nvm install lts/fermium
+    nvm use lts/fermium
+    nvm alias default lts/fermium
+    
+    # 验证安装
+    node -v
+    npm -v
+    
     success node
   fi
 }
